@@ -1,7 +1,7 @@
-use crate::aoc1::aoc1::aoc1;
+use crate::aoc::aoc1::count_calories;
 
-mod aoc1;
+mod aoc;
 
 fn main() {
-    aoc1();
+    count_calories();
 }

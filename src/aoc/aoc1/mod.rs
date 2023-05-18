@@ -1,10 +1,10 @@
 use std::fs;
 
-pub fn aoc1() {
+pub fn count_calories() {
     let mut calories: Vec<usize> = vec![];
     let mut current: usize = 0;
 
-    if let Ok(file) = fs::read_to_string("src/aoc1/inputz") {
+    if let Ok(file) = fs::read_to_string("src/aoc/aoc1/input") {
         file.split('\n').for_each(|line| {
             match line.parse::<usize>() {
                 Ok(value) => {
