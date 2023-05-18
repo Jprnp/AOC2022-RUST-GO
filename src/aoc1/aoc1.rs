@@ -1,10 +1,10 @@
 use std::fs;
 
-fn main() {
+pub fn aoc1() {
     let mut calories: Vec<usize> = vec![];
     let mut current: usize = 0;
 
-    if let Ok(file) = fs::read_to_string("input") {
+    if let Ok(file) = fs::read_to_string("src/aoc1/inputz") {
         file.split('\n').for_each(|line| {
             match line.parse::<usize>() {
                 Ok(value) => {
@@ -16,8 +16,12 @@ fn main() {
                 }
             }
         });
+    } else {
+        panic!("File not found")
     }
+
     calories.push(current);
     calories.sort_by(|a, b| b.cmp(a));
-    println!("{}", calories[0] + calories[1] + calories[2]);
+    let result: usize = calories.iter().take(3).sum();
+    println!("{}", result);
 }
