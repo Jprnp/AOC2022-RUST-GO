@@ -23,5 +23,5 @@ pub fn count_calories() {
     calories.push(current);
     calories.sort_by(|a, b| b.cmp(a));
     let result: usize = calories.iter().take(3).sum();
-    println!("{}", result);
+    println!("AOC1 - PT2: {}", result);
 }

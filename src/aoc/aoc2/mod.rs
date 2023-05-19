@@ -75,5 +75,5 @@ pub fn jo_ken_po() {
         panic!("File not found")
     }
 
-    println!("{}", total_score);
+    println!("AOC2 - PT1: {}", total_score);
 }

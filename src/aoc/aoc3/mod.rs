@@ -1,5 +1,7 @@
 use std::fs;
 
+pub mod pt2;
+
 pub fn rucksack_reorganization() {
     let mut sum: usize = 0;
     if let Ok(file) = fs::read_to_string("src/aoc/aoc3/input") {
@@ -12,7 +14,7 @@ pub fn rucksack_reorganization() {
         panic!("File not found")
     }
 
-    println!("{}", sum);
+    println!("AOC3 - PT1: {}", sum);
 }
 
 fn find_common_item_value(items: &str) -> usize {

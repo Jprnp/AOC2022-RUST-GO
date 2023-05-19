@@ -1,20 +1,5 @@
 use std::fs;
-
-enum Outcome {
-    LOST,
-    WON,
-    DRAW
-}
-
-impl Outcome {
-    pub fn score(&self) -> usize {
-        match self {
-            Self::LOST => { 0 }
-            Self::WON => { 6 }
-            Self::DRAW => { 3 }
-        }
-    }
-}
+use crate::aoc::aoc2::{Outcome, Shape};
 
 impl From<&str> for Outcome {
     fn from(value: &str) -> Self {
@@ -23,46 +8,6 @@ impl From<&str> for Outcome {
             "Y" => { Self::DRAW }
             "Z" => { Self::WON }
             _ => { Self::LOST } // I know i should use None for this case but kinda lazy rn
-        }
-    }
-}
-
-#[derive(PartialEq)]
-enum Shape {
-    ROCK,
-    PAPER,
-    SCISSORS
-}
-
-impl Shape {
-    pub fn score(&self) -> usize {
-        match self {
-            Self::ROCK => { 1 }
-            Self::PAPER => { 2 }
-            Self::SCISSORS => { 3 }
-        }
-    }
-
-    pub fn outcome_vs(&self, other: &Self) -> Outcome {
-        if self == other {
-            return Outcome::DRAW;
-        }
-
-        match self {
-            Self::ROCK => { if other == &Self::SCISSORS { Outcome::WON } else { Outcome::LOST } }
-            Self::PAPER => { if other == &Self::ROCK { Outcome::WON } else { Outcome::LOST } }
-            Self::SCISSORS => { if other == &Self::PAPER { Outcome::WON } else { Outcome::LOST } }
-        }
-    }
-}
-
-impl From<&str> for Shape {
-    fn from(value: &str) -> Self {
-        match value {
-            "A" => { Self::ROCK }
-            "B" => { Self::PAPER }
-            "C" => { Self::SCISSORS }
-            _ => { Self::ROCK } // I know i should use None for this case but kinda lazy rn
         }
     }
 }
@@ -85,7 +30,7 @@ pub fn jo_ken_po_pt2() {
         panic!("File not found")
     }
 
-    println!("{}", total_score);
+    println!("AOC2 - PT2: {}", total_score);
 }
 
 fn needed_shape(opponent: &Shape, wtd_outcome: &Outcome) -> Shape {
