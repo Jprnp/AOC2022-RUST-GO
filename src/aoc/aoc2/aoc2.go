@@ -38,10 +38,11 @@ func main() {
 	lines := strings.Split(content, "\n")
 
 	for _, line := range lines {
-		line = strings.Replace(line, "-", "", 1)
+		line = strings.ReplaceAll(line, "\r", "")
+		line = strings.ReplaceAll(line, "-", "")
 		line = strings.ReplaceAll(line, " ", "")
 		inputs := []rune(line)
-		if len(inputs) == 3 {
+		if len(inputs) == 2 {
 			totalPoints += determinePoints(inputs)
 		}
 	}

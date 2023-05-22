@@ -20,6 +20,7 @@ func main() {
 	lines := strings.Split(content, "\n")
 
 	for _, line := range lines {
+		line = strings.ReplaceAll(line, "\r", "")
 		value, err := strconv.Atoi(line)
 		if err != nil {
 			calories = append(calories, current)
