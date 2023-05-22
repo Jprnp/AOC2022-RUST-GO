@@ -1,11 +1,13 @@
 use std::fs;
 
+use crate::aoc::LINE_ENDING;
+
 pub mod pt2;
 
 pub fn rucksack_reorganization() {
     let mut sum: usize = 0;
     if let Ok(file) = fs::read_to_string("src/aoc/aoc3/input") {
-        file.split('\n').for_each(|line| {
+        file.split(LINE_ENDING).for_each(|line| {
             if line.trim().len() > 0 {
                 sum += find_common_item_value(line);
             }

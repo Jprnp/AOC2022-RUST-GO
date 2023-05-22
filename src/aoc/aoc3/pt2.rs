@@ -1,10 +1,10 @@
 use std::fs;
-use crate::aoc::aoc3::item_value;
+use crate::aoc::{aoc3::item_value, LINE_ENDING};
 
 pub fn rucksack_reorganization2() {
     let mut sum: usize = 0;
     if let Ok(file) = fs::read_to_string("src/aoc/aoc3/input") {
-        let lines: Vec<&str> = file.split('\n').collect();
+        let lines: Vec<&str> = file.split(LINE_ENDING).collect();
         for chunk in lines.chunks(3) {
             if let Some(dup) = find_badge_in_chunk(chunk) {
                 sum += item_value(dup);

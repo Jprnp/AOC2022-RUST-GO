@@ -11,8 +11,7 @@ import (
 func main() {
 	var calories []int
 	current := 0
-
-	bytes, err := os.ReadFile("input")
+	bytes, err := os.ReadFile("src/aoc/aoc1/input")
 	if err != nil {
 		log.Fatal(err)
 	}

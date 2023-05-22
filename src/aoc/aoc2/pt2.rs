@@ -1,5 +1,5 @@
 use std::fs;
-use crate::aoc::aoc2::{Outcome, Shape};
+use crate::aoc::{aoc2::{Outcome, Shape}, LINE_ENDING};
 
 impl From<&str> for Outcome {
     fn from(value: &str) -> Self {
@@ -16,7 +16,7 @@ pub fn jo_ken_po_pt2() {
     let mut total_score: usize = 0;
 
     if let Ok(file) = fs::read_to_string("src/aoc/aoc2/input") {
-        file.split('\n').for_each(|line| {
+        file.split(LINE_ENDING).for_each(|line| {
             let moves: Vec<&str> = line.split(' ').collect();
             if moves.len() > 1 {
                 let opponent: Shape = moves[0].into();
